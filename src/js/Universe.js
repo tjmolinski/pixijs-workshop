@@ -1,3 +1,5 @@
+import { ScoreText } from './score_text';
+
 export class Universe {
   constructor(camera, stage, assets) {
     this.camera = camera;
@@ -5,6 +7,13 @@ export class Universe {
   }
 
   tick(time) {
+    this.camera.tick(time);
+
+    // We need to update the game entities
+    // The ball, player paddle, and AI paddle
+
+    // Here we need to check collisions
+    // Update the score text here
   }
 
   // Basic collision check that uses the AABB(Axis Aligned Bounding Box)
