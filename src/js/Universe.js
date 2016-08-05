@@ -46,17 +46,13 @@ export class Universe {
   // of the screen, giving a player a point and resetting the ball
   updateScores() {
     if(this.ball.position.x < -this.ball.halfWidth) {
-      this.ball.position.x = 400;
-      this.ball.position.y = 300;
-      this.ball.hsp = 1;
+      this.ball.resetBall(1);
       this.scoreText.playerScored(1);
       this.assets.scoreSound.play();
     }
 
     if(this.ball.position.x > 800+this.ball.halfWidth) {
-      this.ball.position.x = 400;
-      this.ball.position.y = 300;
-      this.ball.hsp = -1;
+      this.ball.resetBall(-1);
       this.scoreText.playerScored(0);
       this.assets.scoreSound.play();
     }
