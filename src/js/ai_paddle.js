@@ -1,3 +1,8 @@
+/*
+
+// Use this class to create a basic AI paddle
+// that will play Pong with the user
+
 import { Paddle } from './paddle';
 
 export class AIPaddle extends Paddle {
@@ -21,3 +26,5 @@ export class AIPaddle extends Paddle {
     this.position.y += clampedSpeed;
   }
 }
+
+*/
