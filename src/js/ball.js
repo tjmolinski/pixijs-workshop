@@ -21,6 +21,12 @@ updateMovement() {
   }
 }
 
+// Resetting the ball to the center position with a new horizontal speed
+resetBall(newHsp) {
+  this.position = this.centerPosition;
+  this.hsp = newHsp;
+}
+
 // Resolving the collision with the paddle and then changing our velocity
 // dependant on which side of the paddle that was hit.
 // Center of paddle causes a horizontal reflection
