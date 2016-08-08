@@ -24,6 +24,7 @@ updateMovement() {
 // Resetting the ball to the center position with a new horizontal speed
 resetBall(newHsp) {
   this.position = this.centerPosition;
+  this.spd = this.speed;
   this.hsp = newHsp;
 }
 
@@ -33,13 +34,12 @@ resetBall(newHsp) {
 // Top of paddle causes a reflection towards the top of the screen
 // Bottom of the paddles causes a reflection towards the bottom of the scren
 reflect(paddle) {
-  this.position.x = paddle.position.x - (paddle.halfWidth + this.halfWidth) * this.hsp;
+  this.position.x = paddle.position.x - ((paddle.halfWidth + this.halfWidth) * this.hsp);
   this.vsp = (this.position.y - paddle.position.y) / 40;
 
   if(Math.abs(this.hsp) < 6) {
-    this.hsp *= -1.25;
-  } else {
-    this.hsp *= -1;
+    this.spd *= -1.25;
   }
+  this.hsp *= -1;
 }
 */
