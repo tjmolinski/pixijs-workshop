@@ -7,17 +7,18 @@ export class Ball extends PIXI.Sprite {
       y: 0.5
     };
 
-    this.position = {
-      x: newX, y: newY
-    };
+    this.position.x = newX;
+    this.position.y = newY;
+    this.centerPositionX = this.position.x;
+    this.centerPositionY = this.position.y;
 
     this.hsp = -1;
     this.vsp = -1;
-    this.spd = 2;
+    this.speed = 2;
+    this.spd = this.speed;
 
     this.halfWidth = this.width/2;
     this.halfHeight = this.height/2;
-    this.centerPosition = this.position;
   }
 
   tick(time) {
@@ -43,7 +44,9 @@ export class Ball extends PIXI.Sprite {
 
   // Resetting the ball to the center position with a new horizontal speed
   resetBall(newHsp) {
-    this.position = this.centerPosition;
+    this.position.x = this.centerPositionX;
+    this.position.y = this.centerPositionY;
+    this.spd = this.speed;
     this.hsp = newHsp;
   }
 
@@ -53,13 +56,12 @@ export class Ball extends PIXI.Sprite {
   // Top of paddle causes a reflection towards the top of the screen
   // Bottom of the paddles causes a reflection towards the bottom of the scren
   reflect(paddle) {
-    this.position.x = paddle.position.x - (paddle.halfWidth + this.halfWidth) * this.hsp;
+    this.position.x = paddle.position.x - ((paddle.halfWidth + this.halfWidth) * this.hsp);
     this.vsp = (this.position.y - paddle.position.y) / 40;
 
-    if(Math.abs(this.hsp) < 6) {
-      this.hsp *= -1.25;
-    } else {
-      this.hsp *= -1;
+    if(Math.abs(this.hsp) < 5) {
+      this.spd *= 1.25;
     }
+    this.hsp *= -1;
   }
 }
