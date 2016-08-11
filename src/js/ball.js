@@ -38,7 +38,7 @@ reflect(paddle) {
   this.vsp = (this.position.y - paddle.position.y) / 40;
 
   if(Math.abs(this.hsp) < 6) {
-    this.spd *= -1.25;
+    this.spd *= 1.25;
   }
   this.hsp *= -1;
 }
